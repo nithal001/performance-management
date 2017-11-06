@@ -48,3 +48,20 @@ ul{
     width: 100%;
     height: auto;
 }
+
+.content h4 {
+    margin-bottom: 15px;
+}
+
+.content .thead-inverse th {
+    color: #fff;
+    background-color: #3186ad;
+}
+
+.content table {
+    border: 1px solid #3186ad;
+}
+
+.content table td {
+    border-right: 1px solid #3186ad;
+}

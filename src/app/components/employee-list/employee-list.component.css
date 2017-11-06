@@ -1,0 +1,16 @@
+h4 {
+    margin-bottom: 15px;
+}
+
+.thead-inverse th {
+    color: #fff;
+    background-color: #3186ad;
+}
+
+table {
+    border: 1px solid #3186ad;
+}
+
+table td {
+    border-right: 1px solid #3186ad;
+}
