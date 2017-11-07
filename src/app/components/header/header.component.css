@@ -1,0 +1,35 @@
+.global-header {
+    background: #303136;
+    padding: 5px;
+}
+
+.global-header h1,
+.logo {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.logo {
+    font-size: 13px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.logo span {
+    display: block;
+}
+
+.wrap-header {
+    display: flex;
+}
+
+.navigation {
+    padding: 52px 0 0 120px;
+}
+
+.navigation li a {
+    color: white;
+}
