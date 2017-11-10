@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ColumnSetting } from '../../model/model';
-import { SharedService } from '../../shared-service/shared.service';
+import { ApiService } from '../../api-service/api.service';
 interface EmployeeData {
-  name: string;
-  dueDate: string;
+  id?: string;
+  name?: string;
+  dueDate?: string;
 }
 @Component({
   selector: 'app-employee-review-pending',
@@ -23,18 +24,20 @@ export class EmployeeReviewPendingComponent implements OnInit {
           header: 'Due Date'
       }
   ];
-  constructor(private sharedService: SharedService) { }
+  private employeeId: string = 'id';
+
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
       this.getReviewPendingData();
   }
 
   public getReviewPendingData() {
-      this.sharedService.getEmployeeData()
+      this.apiService.getEmployeeData()
         .subscribe(
             data => {
                 this.dataSet = data;
-                this.employeeData = this.dataSet['employee'].filter((obj) => {
+                this.employeeData = this.dataSet.filter((obj) => {
                     return obj.reviewStatus == false;
                 });
             }

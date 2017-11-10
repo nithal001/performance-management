@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HttpModule } from '@angular/http';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,7 +15,7 @@ import { EmployeeReviewPendingComponent } from './components/employee-review-pen
 import { EmployeeReviewCompletedComponent } from './components/employee-review-completed/employee-review-completed.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
 
-import { SharedService } from './shared-service/shared.service';
+import { ApiService } from './api-service/api.service';
 
 
 @NgModule({
@@ -31,9 +32,12 @@ import { SharedService } from './shared-service/shared.service';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    HttpModule
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [SharedService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

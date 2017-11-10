@@ -4,7 +4,7 @@
             <th *ngFor="let map of columnMaps">{{ map.header }}</th>
         </tr>
     </thead>
-    <tr *ngFor="let row of dataSet">
+    <tr *ngFor="let row of dataSet" (click)="onRowClick(row[id])">
         <td *ngFor="let map of columnMaps">{{ row[map.primaryKey] }}</td>
     </tr>
 </table>
