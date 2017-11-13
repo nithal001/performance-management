@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output, OnChanges } from '@angular/core';
 import { ColumnSetting } from '../../model/model';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ export class DatatableComponent implements OnChanges {
   @Input() dataSet;
   @Input() settings: ColumnSetting[];
   @Input() id;
+  @Output() onClick = new EventEmitter();
   public columnMaps: ColumnSetting[];
   constructor(private router:Router) { }
 
@@ -24,9 +25,7 @@ export class DatatableComponent implements OnChanges {
       if(id == undefined) {
          return false;
       }
-      setTimeout(() => {
-          this.router.navigate(['/employee-details', id])}, 100
-      );
+      this.onClick.emit(id);
   }
 
 }

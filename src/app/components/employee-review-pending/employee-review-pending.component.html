@@ -1,2 +1,7 @@
 <h4>Pending Employee List</h4>
-<app-datatable [dataSet]="employeeData" [settings]="employeeSetting" [id]="employeeId"></app-datatable>
+<app-datatable
+    [dataSet]="employeeData"
+    [settings]="employeeSetting"
+    [id]="employeeId"
+    (onClick)="onClick($event)">
+</app-datatable>

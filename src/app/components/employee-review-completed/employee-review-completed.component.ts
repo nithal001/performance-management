@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api-service/api.service';
+import { Router } from '@angular/router';
 import { ColumnSetting } from '../../model/model';
 interface EmployeeData {
     name: string;
@@ -30,7 +31,7 @@ export class EmployeeReviewCompletedComponent implements OnInit {
       }
   ];
   private employeeId: string = 'id';
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router:Router) { }
 
   ngOnInit() {
       this.getCompletedList();
@@ -46,6 +47,12 @@ export class EmployeeReviewCompletedComponent implements OnInit {
                   });
               }
           );
+  }
+
+  public onClick(id: any) {
+      setTimeout(() => {
+          this.router.navigate(['/employee-details', id])}, 100
+      );
   }
 
 }
