@@ -1,0 +1,25 @@
+.details {
+    border: 1px solid #3186ad;
+}
+
+.details h2 {
+    color: white;
+    background: #3186ad;
+    padding: 10px;
+    font-size: 22px;
+}
+
+ ul {
+     padding: 0;
+     list-style-type: none;
+ }
+
+li {
+    padding: 10px;
+}
+
+li span {
+    width: 20%;
+    margin-right: 10px;
+    display: inline-block;
+}

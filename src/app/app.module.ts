@@ -6,6 +6,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+
+import { ApiService } from './api-service/api.service';
+
 import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,8 +17,9 @@ import { PerformanceRatingComponent } from './components/performance-rating/perf
 import { EmployeeReviewPendingComponent } from './components/employee-review-pending/employee-review-pending.component';
 import { EmployeeReviewCompletedComponent } from './components/employee-review-completed/employee-review-completed.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
+import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
+import { EmployeeRatingComponent } from './components/employee-rating/employee-rating.component';
 
-import { ApiService } from './api-service/api.service';
 
 
 @NgModule({
@@ -27,7 +31,9 @@ import { ApiService } from './api-service/api.service';
     PerformanceRatingComponent,
     EmployeeReviewPendingComponent,
     EmployeeReviewCompletedComponent,
-    DatatableComponent
+    DatatableComponent,
+    EmployeeInfoComponent,
+    EmployeeRatingComponent
   ],
   imports: [
     BrowserModule,

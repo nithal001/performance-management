@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ColumnSetting } from '../../model/model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-datatable',
@@ -11,7 +12,7 @@ export class DatatableComponent implements OnChanges {
   @Input() settings: ColumnSetting[];
   @Input() id;
   public columnMaps: ColumnSetting[];
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnChanges() {
       if(this.settings) {
@@ -23,6 +24,9 @@ export class DatatableComponent implements OnChanges {
       if(id == undefined) {
          return false;
       }
+      setTimeout(() => {
+          this.router.navigate(['/employee-details', id])}, 100
+      );
   }
 
 }

@@ -29,6 +29,7 @@ export class EmployeeReviewCompletedComponent implements OnInit {
           header: 'Rating'
       }
   ];
+  private employeeId: string = 'id';
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
