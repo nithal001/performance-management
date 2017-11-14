@@ -5,6 +5,15 @@
         </tr>
     </thead>
     <tr *ngFor="let row of dataSet">
-        <td *ngFor="let map of columnMaps">{{ row[map.primaryKey] }}</td>
+        <ng-container *ngFor="let map of columnMaps">
+            <td *ngIf="map.primaryKey == 'name'" >
+                <a href="#" (click)="onRowClick(row[id])">
+                    {{ row[map.primaryKey] }}
+                </a>
+            </td>
+            <td *ngIf="map.primaryKey != 'name'" >
+                {{ row[map.primaryKey] }}
+            </td>
+        </ng-container>
     </tr>
 </table>

@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
+
+import { ApiService } from './api-service/api.service';
 
 import { AppComponent } from './app.component';
 import { EmployeeListComponent } from './components/employee-list/employee-list.component';
@@ -13,8 +17,9 @@ import { PerformanceRatingComponent } from './components/performance-rating/perf
 import { EmployeeReviewPendingComponent } from './components/employee-review-pending/employee-review-pending.component';
 import { EmployeeReviewCompletedComponent } from './components/employee-review-completed/employee-review-completed.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
+import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
+import { EmployeeRatingComponent } from './components/employee-rating/employee-rating.component';
 
-import { SharedService } from './shared-service/shared.service';
 
 
 @NgModule({
@@ -26,14 +31,19 @@ import { SharedService } from './shared-service/shared.service';
     PerformanceRatingComponent,
     EmployeeReviewPendingComponent,
     EmployeeReviewCompletedComponent,
-    DatatableComponent
+    DatatableComponent,
+    EmployeeInfoComponent,
+    EmployeeRatingComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    HttpModule
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [SharedService],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

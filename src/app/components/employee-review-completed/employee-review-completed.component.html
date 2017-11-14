@@ -1,15 +1,7 @@
 <h4>Completed Employee List</h4>
-<table class="table">
-    <thead class="thead-inverse">
-        <tr>
-            <th>Emplyee Name</th>
-            <th>Completed Date</th>
-            <th>Rating</th>
-        </tr>
-    </thead>
-    <tr>
-        <td>Ram</td>
-        <td>2/11/2017</td>
-        <td>3.5</td>
-    </tr>
-</table>
+<app-datatable
+    [dataSet]="reviewCompletedList"
+    [settings]="configSetting"
+    [id]="employeeId"
+    (onClick)="onClick($event)">
+</app-datatable>
