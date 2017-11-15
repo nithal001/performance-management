@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output, OnChanges } from '@angular/core';
-import { ColumnSetting } from '../../model/model';
+import { ColumnSetting } from '../../../model/model';
 import { Router } from '@angular/router';
 
 @Component({

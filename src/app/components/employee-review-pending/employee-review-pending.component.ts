@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColumnSetting } from '../../model/model';
 import { Router } from '@angular/router';
 import { ApiService } from '../../api-service/api.service';
+
 interface EmployeeData {
   id?: string;
   name?: string;
@@ -46,8 +47,9 @@ export class EmployeeReviewPendingComponent implements OnInit {
   }
 
   public onClick(id: any) {
+      this.apiService.emitCurrentIdUpdate(id);
       setTimeout(() => {
-          this.router.navigate(['/employee-details', id])}, 100
+          this.router.navigate(['/employee-details'])}, 100
       );
   }
 

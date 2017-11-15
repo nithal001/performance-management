@@ -1,0 +1,5 @@
+<ul class="rating">
+    <li class="rating__star" *ngFor="let star of stars | reverse" (click)="onClick(star)"
+        [ngClass]="{'is_active': rating >= star}">
+    </li>
+</ul>
