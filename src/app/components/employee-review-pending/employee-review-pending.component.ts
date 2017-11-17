@@ -26,7 +26,7 @@ export class EmployeeReviewPendingComponent implements OnInit {
           header: 'Due Date'
       }
   ];
-  private employeeId: string = 'id';
+  public employeeId: string = 'id';
 
   constructor(private apiService: ApiService, private router:Router) { }
 

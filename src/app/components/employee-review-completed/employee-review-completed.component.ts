@@ -30,7 +30,7 @@ export class EmployeeReviewCompletedComponent implements OnInit {
           header: 'Rating'
       }
   ];
-  private employeeId: string = 'id';
+  public employeeId: string = 'id';
   constructor(private apiService: ApiService, private router:Router) { }
 
   ngOnInit() {

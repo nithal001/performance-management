@@ -6,6 +6,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
 import { RatingModule } from "ngx-rating";
 
 import { ApiService } from './api-service/api.service';
@@ -47,7 +48,8 @@ import { AppPipeModule }    from './app-pipe.module';
     HttpModule,
     AppRoutingModule,
     RatingModule,
-    AppPipeModule
+    AppPipeModule,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

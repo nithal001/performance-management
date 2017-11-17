@@ -1,5 +1,12 @@
 <ul class="rating">
-    <li class="rating__star" *ngFor="let star of stars | reverse" (click)="onClick(star)"
-        [ngClass]="{'is_active': rating >= star}">
+    <ng-container *ngIf="readOnly">
+    <li class="rating__star" *ngFor="let star of stars | reverse"
+        [ngClass]="{'is_active': value >= star}">
     </li>
+    </ng-container>
+    <ng-container *ngIf="!readOnly">
+        <li class="rating__star" *ngFor="let star of stars | reverse" (click)="onClick(star)"
+            [ngClass]="{'is_active': rating >= star}">
+        </li>
+    </ng-container>
 </ul>
