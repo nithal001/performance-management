@@ -5,7 +5,7 @@ import { EmployeeViewComponent } from './components/employee-view/employee-view.
 
 const appRoutes: Routes = [
     {
-        path: 'employee-details/:id',
+        path: 'employee-details',
         component: EmployeeViewComponent
     },
     {

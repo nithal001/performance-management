@@ -6,6 +6,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { firebaseConfig } from '../environments/firebase.config';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { RatingModule } from "ngx-rating";
 
 import { ApiService } from './api-service/api.service';
 
@@ -16,10 +17,12 @@ import { EmployeeViewComponent } from './components/employee-view/employee-view.
 import { PerformanceRatingComponent } from './components/performance-rating/performance-rating.component';
 import { EmployeeReviewPendingComponent } from './components/employee-review-pending/employee-review-pending.component';
 import { EmployeeReviewCompletedComponent } from './components/employee-review-completed/employee-review-completed.component';
-import { DatatableComponent } from './components/datatable/datatable.component';
+import { DatatableComponent } from './components/shared/datatable/datatable.component';
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { EmployeeRatingComponent } from './components/employee-rating/employee-rating.component';
+import { StarReviewComponent } from './components/shared/star-review/star-review.component';
 
+import { AppPipeModule }    from './app-pipe.module';
 
 
 @NgModule({
@@ -33,7 +36,8 @@ import { EmployeeRatingComponent } from './components/employee-rating/employee-r
     EmployeeReviewCompletedComponent,
     DatatableComponent,
     EmployeeInfoComponent,
-    EmployeeRatingComponent
+    EmployeeRatingComponent,
+    StarReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,9 @@ import { EmployeeRatingComponent } from './components/employee-rating/employee-r
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RatingModule,
+    AppPipeModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

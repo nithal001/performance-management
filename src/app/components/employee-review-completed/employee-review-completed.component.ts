@@ -50,8 +50,9 @@ export class EmployeeReviewCompletedComponent implements OnInit {
   }
 
   public onClick(id: any) {
+      this.apiService.emitCurrentIdUpdate(id);
       setTimeout(() => {
-          this.router.navigate(['/employee-details', id])}, 100
+          this.router.navigate(['/employee-details'])}, 100
       );
   }
 

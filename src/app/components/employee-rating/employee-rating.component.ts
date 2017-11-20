@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-rating.component.css']
 })
 export class EmployeeRatingComponent implements OnInit {
-
+  public starsCount: any;
   constructor() { }
 
   ngOnInit() {
