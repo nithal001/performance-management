@@ -1,11 +1,9 @@
 <h4>Performance Rating</h4>
-<!-- <star-review></star-review> -->
-<ng-container *ngFor="let item of ratingData">
-<div class="details" *ngIf="item.jobKnowledge == ''">
-    <form (ngSubmit)="onSubmit()" #rating="ngForm">
+<ng-container *ngIf="!reviewStatus">
+<div class="details">
+    <form [formGroup]="ratingForm" novalidate>
     <ul>
         <li><span>Job Knowledge:</span><star-review (onSelect)="onSelect($event,'jobKnowledge')"></star-review>
-            <input type="text" [(ngModel)]="data.jobKnowledge"/>
         </li>
         <li><span>Dependability:</span><star-review (onSelect)="onSelect($event, 'dependability')"></star-review></li>
         <li><span>Work Quality:</span><star-review (onSelect)="onSelect($event, 'workQuality')"></star-review></li>
@@ -15,8 +13,18 @@
         <li><span>Initiative:</span><star-review (onSelect)="onSelect($event, 'initiative')">></star-review></li>
         <li><span>Organization:</span><star-review (onSelect)="onSelect($event, 'organization')"></star-review></li>
         <li><span>Average:</span><star-review [value]="averageRating"></star-review></li>
-        <li><span>Comments:</span><textarea name="name"></textarea></li>
-        <li><button type="submit">Submit</button></li>
+        <li><span>Comments:</span>
+            <textarea formControlName="comments"
+            [ngClass]="{
+                      'is-success' :  ratingForm.get('comments').valid &&  ratingForm.get('comments').dirty,
+                      'is-danger'  :  !ratingForm.get('comments').valid
+                    }">
+            </textarea>
+            <p class="error is-danger" [hidden]="ratingForm.get('comments').valid">
+                required field
+              </p>
+        </li>
+        <li><button type="submit" (click)="startNewRating()" [disabled]="!status">Submit</button></li>
     </ul>
     </form>
 </div>

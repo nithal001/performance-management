@@ -14,7 +14,7 @@ export class StarReviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      if(this.value == '') {
+      if(this.value != undefined) {
           this.readOnly = true;
       }
   }

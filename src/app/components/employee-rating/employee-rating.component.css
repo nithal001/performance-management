@@ -21,6 +21,7 @@ li {
     border-bottom: 1px solid #3186ad;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 li span {
@@ -32,4 +33,12 @@ li span {
 textarea {
     width: 400px;
     height: 125px;
+    margin-bottom: 25px;
+}
+
+p.error {
+    position: absolute;
+    bottom: 0;
+    left: 52%;
+    color: red;
 }
