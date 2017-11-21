@@ -32,7 +32,8 @@ export class EmployeeRatingComponent implements OnInit {
   public employeeId: any;
 
   public status: boolean = false;
-  public completedDate;
+  public completedDate: any;
+  public thankMessage: boolean = false;
 
   constructor(private apiService: ApiService,
               private fb: FormBuilder,
@@ -55,9 +56,10 @@ export class EmployeeRatingComponent implements OnInit {
                               this.apiService.getEmployeeById(item)
                               .subscribe(data => {
                                   this.reviewStatus = data[0].reviewStatus;
-                                //   this.ratingData = data.map((obj) => {
-                                //       return obj.reviewRatings;
-                                //   });
+                                  this.averageRating = data[0].averageRating;
+                                  this.ratingData = data.map((obj) => {
+                                      return obj.reviewRatings;
+                                  });
                               })
                           });
   }
@@ -99,6 +101,10 @@ export class EmployeeRatingComponent implements OnInit {
       }
       this.apiService.updateReviewRating(this.reviewPath, ratingFormData);
       this.apiService.updateEmployeeRatingStatus(this.statusPath, statusUpdateData);
+      this.thankMessage = true;
+      setTimeout(() => {
+          this.thankMessage = false;
+      }, 3000);
   }
 
 

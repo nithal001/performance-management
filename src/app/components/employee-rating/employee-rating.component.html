@@ -1,5 +1,5 @@
-<h4>Performance Rating</h4>
 <ng-container *ngIf="!reviewStatus">
+    <h4>Performance Rating</h4>
 <div class="details">
     <form [formGroup]="ratingForm" novalidate>
     <ul>
@@ -17,7 +17,7 @@
             <textarea formControlName="comments"
             [ngClass]="{
                       'is-success' :  ratingForm.get('comments').valid &&  ratingForm.get('comments').dirty,
-                      'is-danger'  :  !ratingForm.get('comments').valid
+                      'is-danger'  :  !ratingForm.get('comments').valid && ratingForm.get('comments').touched
                     }">
             </textarea>
             <p class="error is-danger" [hidden]="ratingForm.get('comments').valid">
@@ -28,4 +28,28 @@
     </ul>
     </form>
 </div>
+</ng-container>
+
+<ng-container *ngIf="reviewStatus">
+    <p *ngIf="thankMessage" class="thank-message">Thank you for submitting details</p>
+    <h4>Performance Rating</h4>
+    <div class="details">
+        <ul *ngFor="let data of ratingData">
+            <li><span>Job Knowledge:</span><star-review [value]="data.jobKnowledge"></star-review>
+            </li>
+            <li><span>Dependability:</span><star-review [value]="data.dependability"></star-review></li>
+            <li><span>Work Quality:</span><star-review [value]="data.workQuality"></star-review></li>
+            <li><span>Communication Abilities:</span><star-review [value]="data.communicationAbilities"></star-review></li>
+            <li><span>Flexibility:</span><star-review [value]="data.flexibility"></star-review></li>
+            <li><span>Interpersonal Skills:</span><star-review [value]="data.interpersonalSkills"></star-review></li>
+            <li><span>Initiative:</span><star-review [value]="data.initiative"></star-review></li>
+            <li><span>Organization:</span><star-review [value]="data.organization"></star-review></li>
+            <li><span>Average:</span><star-review [value]="averageRating"></star-review></li>
+            <li><span>Comments:</span>
+                <p>
+                    {{data.comments}}
+                </p>
+           </li>
+        </ul>
+    </div>
 </ng-container>

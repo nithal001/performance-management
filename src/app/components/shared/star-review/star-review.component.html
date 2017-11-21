@@ -1,6 +1,6 @@
 <ul class="rating">
     <ng-container *ngIf="readOnly">
-    <li class="rating__star" *ngFor="let star of stars | reverse"
+    <li class="rating__star read__only" *ngFor="let star of stars | reverse"
         [ngClass]="{'is_active': value >= star}">
     </li>
     </ng-container>

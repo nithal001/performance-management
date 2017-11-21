@@ -36,6 +36,14 @@ div {
     color: #f1c40f;
 }
 
+.rating__star.read__only:hover::before {
+    color: #34495e;
+}
+
+.rating__star.read__only.is_active:hover::before {
+    color: #f1c40f;
+}
+
 /* Make any future siblings of a hovered star gold. In this case
    'future' looks like previous due to our reversed direction */
 .rating__star:hover ~ .rating__star::before {
