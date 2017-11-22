@@ -11,8 +11,11 @@
                     {{ row[map.primaryKey] }}
                 </a>
             </td>
-            <td *ngIf="map.primaryKey != 'name'" >
+            <td *ngIf="map.primaryKey != 'name' && map.primaryKey != 'averageRating'" >
                 {{ row[map.primaryKey] }}
+            </td>
+            <td *ngIf="map.primaryKey == 'averageRating'">
+                <star-review [value]="row[map.primaryKey]"></star-review>
             </td>
         </ng-container>
     </tr>

@@ -1,4 +1,5 @@
 <h4>Appraisal Evaluation</h4>
+<div *ngIf="dataSet">
 <div *ngFor="let item of dataSet" class="details">
     <h2>{{item.name}}</h2>
     <ul>
@@ -10,5 +11,6 @@
         <li><span>Accomplishments:</span>{{item.accomplishment}}</li>
         <li><span>Feedback:</span>{{item.feedback}}</li>
     </ul>
+</div>
 </div>
 <br />
