@@ -10,6 +10,7 @@ export class StarReviewComponent implements OnInit {
   public rating: number = 0;
   public readOnly: boolean;
   @Input() value;
+  @Input() starId;
   @Output() onSelect = new EventEmitter();
   constructor() { }
 
