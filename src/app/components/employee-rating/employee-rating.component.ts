@@ -35,6 +35,16 @@ export class EmployeeRatingComponent implements OnInit {
   public completedDate: any;
   public thankMessage: boolean = false;
 
+  public jobKnowledgeWeightage: number = 5;
+  public dependabilityWeightage: number = 5;
+  public workQualityWeightage: number = 5;
+  public communicationAbilitiesWeightage: number = 5;
+  public flexibilityWeightage: number = 4;
+  public interpersonalSkillsWeightage: number = 4;
+  public initiativeWeightage: number = 4;
+  public organizationWeightage: number = 4;
+  public totalWeightage: number;
+
   constructor(private apiService: ApiService,
               private fb: FormBuilder,
               private datePipe: DatePipe) { }
@@ -74,15 +84,39 @@ export class EmployeeRatingComponent implements OnInit {
   public onSelect(value: any, ref: any) {
       this[ref] = value;
       if(this[ref]) {
-          this.starCount = this.jobKnowledge + this. dependability +
-                    this.workQuality + this.communicationAbilities +
-                    this.flexibility + this.interpersonalSkills +
-                    this.initiative + this.organization;
-          this.averageRating = Math.floor(this.starCount/8);
+          // this.starCount = this.jobKnowledge + this. dependability +
+          //           this.workQuality + this.communicationAbilities +
+          //           this.flexibility + this.interpersonalSkills +
+          //           this.initiative + this.organization;
+          // this.averageRating = Math.floor(this.starCount/8);
+
+      this.totalWeightage = this.jobKnowledgeWeightage + this. dependabilityWeightage +
+                    this.workQualityWeightage + this.communicationAbilitiesWeightage +
+                    this.flexibilityWeightage + this.interpersonalSkillsWeightage +
+                    this.initiativeWeightage + this.organizationWeightage;
+
+      this.starCount = this.jobKnowledge * this.jobKnowledgeWeightage +
+                   this. dependability * this. dependabilityWeightage +
+                   this.workQuality * this.workQualityWeightage +
+                   this.communicationAbilities * this.communicationAbilitiesWeightage +
+                   this.flexibility * this.flexibilityWeightage +
+                   this.interpersonalSkills * this.interpersonalSkillsWeightage +
+                   this.initiative * this.initiativeWeightage +
+                   this.organization * this.organizationWeightage;
+      //this.averageRating = this.starCount/this.totalWeightage;
+      let count = this.starCount/this.totalWeightage;
+      let count2 = Number((Math.round(count * 2) / 2).toFixed(1));
+      this.averageRating = count2;
+      console.log(count2);
       }
-      if(this.starCount >= 0) {
+
+      
+
+
+
+      if(this.starCount >= 0)
           this.status = true;
-      }
+      
   }
 
   public startNewRating() {
