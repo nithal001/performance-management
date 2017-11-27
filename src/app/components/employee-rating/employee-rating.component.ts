@@ -84,12 +84,6 @@ export class EmployeeRatingComponent implements OnInit {
   public onSelect(value: any, ref: any) {
       this[ref] = value;
       if(this[ref]) {
-          // this.starCount = this.jobKnowledge + this. dependability +
-          //           this.workQuality + this.communicationAbilities +
-          //           this.flexibility + this.interpersonalSkills +
-          //           this.initiative + this.organization;
-          // this.averageRating = Math.floor(this.starCount/8);
-
       this.totalWeightage = this.jobKnowledgeWeightage + this. dependabilityWeightage +
                     this.workQualityWeightage + this.communicationAbilitiesWeightage +
                     this.flexibilityWeightage + this.interpersonalSkillsWeightage +
@@ -103,20 +97,16 @@ export class EmployeeRatingComponent implements OnInit {
                    this.interpersonalSkills * this.interpersonalSkillsWeightage +
                    this.initiative * this.initiativeWeightage +
                    this.organization * this.organizationWeightage;
-      //this.averageRating = this.starCount/this.totalWeightage;
+
       let count = this.starCount/this.totalWeightage;
-      let count2 = Number((Math.round(count * 2) / 2).toFixed(1));
-      this.averageRating = count2;
-      console.log(count2);
+      let totalCount = Number((Math.round(count * 2) / 2).toFixed(1));
+      this.averageRating = totalCount;
+      console.log(totalCount);
       }
-
-      
-
-
 
       if(this.starCount >= 0)
           this.status = true;
-      
+
   }
 
   public startNewRating() {
