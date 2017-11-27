@@ -38,11 +38,11 @@ export class EmployeeRatingComponent implements OnInit {
   public jobKnowledgeWeightage: number = 5;
   public dependabilityWeightage: number = 5;
   public workQualityWeightage: number = 5;
-  public communicationAbilitiesWeightage: number = 5;
-  public flexibilityWeightage: number = 4;
-  public interpersonalSkillsWeightage: number = 4;
-  public initiativeWeightage: number = 4;
-  public organizationWeightage: number = 4;
+  public communicationAbilitiesWeightage: number = 2;
+  public flexibilityWeightage: number = 2;
+  public interpersonalSkillsWeightage: number = 2;
+  public initiativeWeightage: number = 2;
+  public organizationWeightage: number = 3;
   public totalWeightage: number;
 
   constructor(private apiService: ApiService,
