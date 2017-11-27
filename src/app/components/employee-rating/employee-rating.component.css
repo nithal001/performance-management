@@ -1,0 +1,65 @@
+.details {
+    border: 1px solid #3186ad;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.details h2 {
+    color: white;
+    background: #3186ad;
+    padding: 10px;
+    font-size: 22px;
+}
+
+ ul {
+     padding: 0;
+     list-style-type: none;
+ }
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #3186ad;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+li span {
+    width: 20%;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+textarea {
+    width: 400px;
+    height: 125px;
+    margin-bottom: 25px;
+}
+
+p.error {
+    position: absolute;
+    bottom: 0;
+    left: 52%;
+    display: none;
+}
+
+p.is-danger {
+    display: block;
+    color: red;
+}
+
+.thank-message {
+    padding: 15px;
+    background: #dbf0d9;
+    color: #2c7648;
+}
+
+button {
+    background: #3680ba;
+    color: white;
+    border: none;
+    padding: 5px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 auto;
+}

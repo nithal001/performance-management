@@ -7,6 +7,8 @@ import { firebaseConfig } from '../environments/firebase.config';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RatingModule } from "ngx-rating";
+import { ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { ApiService } from './api-service/api.service';
 
@@ -47,9 +49,10 @@ import { AppPipeModule }    from './app-pipe.module';
     HttpModule,
     AppRoutingModule,
     RatingModule,
-    AppPipeModule
+    AppPipeModule,
+    ReactiveFormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

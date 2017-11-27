@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { ReviewRating, EmployeeRating } from '../model/model';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -21,6 +22,24 @@ export class ApiService {
 
   public emitCurrentIdUpdate(id) {
       this.itemValue.next(id);
+  }
+
+  public getReviewRatingObject(id: any): AngularFireObject<ReviewRating> {
+        let uid = id - 1;
+        return this.db.object(`/employee/${uid}/reviewRatings`)
+  }
+
+  public updateReviewRating(fb: AngularFireObject<ReviewRating>, data: any) {
+    return fb.update(data)
+  }
+
+  public getEmployeeRatingObject(id: any): AngularFireObject<EmployeeRating> {
+        let uid = id - 1;
+        return this.db.object(`/employee/${uid}/`)
+  }
+
+  public updateEmployeeRatingStatus(fb: AngularFireObject<EmployeeRating>, data: any) {
+    return fb.update(data)
   }
 
 }

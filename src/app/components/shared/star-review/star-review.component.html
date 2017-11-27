@@ -1,5 +1,33 @@
-<ul class="rating">
-    <li class="rating__star" *ngFor="let star of stars | reverse" (click)="onClick(star)"
-        [ngClass]="{'is_active': rating >= star}">
-    </li>
-</ul>
+<fieldset class="rating" [ngClass]="readOnly ? 'readOnly' : 'notReadOnly'">
+  <ng-container  *ngFor="let num of [5, 4, 3, 2, 1]">
+      <ng-container *ngIf="!readOnly">
+          <!-- full star -->
+          <input (click)="onClick(num)"
+                [id]="'star'+starId+num"
+                [value]="num-0.5"
+                [name]="starId"
+                type="radio"
+                />
+          <label class="full" [for]="'star'+starId+num"></label>
+          <!-- half star -->
+          <input (click)="onClick(num-0.5)"
+                 [value]="num-0.5"
+                 [id]="'halfstar'+starId+num"
+                 [name]="starId"
+                 type="radio"
+                  />
+          <label class="half" [for]="'halfstar'+starId+num"></label>
+      </ng-container>
+       <ng-container *ngIf="readOnly">
+           <!-- full star -->
+           <input
+                 type="radio"
+                 [checked]="value == num"/>
+           <label class="full"></label>
+           <!-- half star -->
+           <input type="radio"
+                  [checked]="value == num-0.5"  />
+           <label class="half"></label>
+       </ng-container>
+  </ng-container>
+</fieldset>
